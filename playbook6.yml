@@ -1,0 +1,41 @@
+---
+- name: Configuring Tomcat
+  hosts: all
+  tasks:
+    - name: Installing Tomcat10
+      apt:
+        name: tomcat10
+        state: present
+        update_cache: yes
+    - name: Installing Tomcat10-admin
+      apt:
+        name: tomcat10-admin
+        state: present
+        update_cache: no
+    - name: copying tomact-users.xml
+      copy:
+        src: tomcat-users.xml
+        dest: /etc/tomcat10
+    - name: change the port number of tomcat
+      replace:
+        regexp: 8080
+        replace: 9090
+        path: /etc/tomcat10/server.xml
+    - name: restart tomcat10
+      service:
+        name: tomcat10
+        state: restarted
+    - name: Pause for 3 minutes
+      pause:
+        minutes: 3
+    - name: Checking the url response of tomact
+      uri:
+        url: http://172.31.91.192:9090
+        status_code: 200
+    - name: Checking the url response of tomact
+      uri:
+        url: http://172.31.81.97:9090
+        status_code: 200
+
+
+...

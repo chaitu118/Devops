@@ -1,0 +1,10 @@
+---
+- name: Global scope variables
+  hosts: all
+  tasks:
+    - name: Installing Firewalld
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...

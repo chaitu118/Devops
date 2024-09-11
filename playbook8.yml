@@ -1,0 +1,11 @@
+---
+- name: play scope variables
+  hosts: WEBSERVER
+  tasks:
+    - name: Installing Firewalld
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+
+...

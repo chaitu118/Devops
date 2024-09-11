@@ -1,0 +1,13 @@
+---
+- name: Creation of users on nodes
+  hosts: all
+  tasks:
+    - name: creating user
+      user:
+        name: shannu1
+        password: shannu1
+        uid: 1026
+        home: /home/shannu1
+        shell: /bin/bash
+        comment: "A Regualr user"
+...

@@ -1,0 +1,11 @@
+---
+- name: LOOPS
+  hosts: all
+  tasks:
+    - name: Installing softwares
+      apt:
+        name: ["git", "tree","maven"]
+        state: absent
+        update_cache: no
+
+...

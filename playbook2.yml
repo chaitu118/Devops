@@ -1,0 +1,8 @@
+---
+- name: Include module Example
+  hosts: all
+  tasks:
+    - name: Display the output
+      debug:
+        msg: Hi Naram!
+...

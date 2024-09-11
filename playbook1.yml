@@ -1,5 +1,5 @@
 ---
-- name: Error handling git fetch
+- name: Error handling git pull
   hosts: all
   tasks:
     - block:
